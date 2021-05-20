@@ -9,4 +9,5 @@ import com.example.pvp_knights.dataBase.models.user_information;
 public interface user_information_Repository extends JpaRepository<user_information, Long> {
 
 	
+	
 }
