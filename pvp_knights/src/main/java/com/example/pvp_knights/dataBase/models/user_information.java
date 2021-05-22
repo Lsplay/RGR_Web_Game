@@ -20,57 +20,59 @@ public class user_information implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
-	private Long IdUser;
+	private Long idUser;
 
-	private String Login, Password, Email, role;
-	private int NumberOfWin, NumberOfAllGame;
+	private String login, password, email, role;
+	private int numberOfWin, numberOfAllGame;
+
+	
 
 	public Long getIdUser() {
-		return IdUser;
+		return idUser;
 	}
 
-	public void setIdUser(Long user_id) {
-		this.IdUser = user_id;
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
 	}
 
 	public String getLogin() {
-		return Login;
+		return login;
 	}
 
 	public void setLogin(String login) {
-		Login = login;
+		this.login = login;
 	}
 
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 
 	public int getNumberOfWin() {
-		return NumberOfWin;
+		return numberOfWin;
 	}
 
 	public void setNumberOfWin(int numberOfWin) {
-		NumberOfWin = numberOfWin;
+		this.numberOfWin = numberOfWin;
 	}
 
 	public int getNumberOfAllGame() {
-		return NumberOfAllGame;
+		return numberOfAllGame;
 	}
 
 	public void setNumberOfAllGame(int numberOfAllGame) {
-		NumberOfAllGame = numberOfAllGame;
+		this.numberOfAllGame = numberOfAllGame;
 	}
 
 	public String getRole() {
@@ -84,11 +86,16 @@ public class user_information implements Serializable {
 	///////////////////////////////////
 
 	public user_information(String login, String password, String email) {
-		Login = login;
-		Password = password;
-		email = Email;
-		NumberOfAllGame = 0;
-		NumberOfWin = 0;
+		this.login = login;
+		this.password = password;
+		this.email=email;
+		numberOfAllGame = 0;
+		numberOfWin = 0;
+		role="USER";
+	}
+	
+	public user_information(){
+		
 	}
 
 	///////////////////////////////////
