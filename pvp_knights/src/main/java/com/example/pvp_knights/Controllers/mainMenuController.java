@@ -5,12 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class startController {
+public class mainMenuController {
 
-	@GetMapping("/auto")
-	public String start(Model model) {
-		model.addAttribute("title", "Home");
-		return "start";
+	@GetMapping("/")
+	public String main_menu(Model model) {
+		model.addAttribute("title", "PVP Knights");
+		return "page";
 	}
+	
+	
 	
 }
