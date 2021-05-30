@@ -7,4 +7,6 @@ import com.example.pvp_knights.dataBase.models.user_information;
 
 public interface game_information_Repository extends JpaRepository<game_information, Long>{
 		
+	
+	
 }

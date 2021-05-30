@@ -2,31 +2,47 @@ package com.example.pvp_knights.dataBase.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
+
+
+
+import org.hibernate.annotations.ManyToAny;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class user_information implements Serializable {
-
-	private static final long serialVersionUID = 6216344084865363418L;
+public class user_information implements UserDetails {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private Long idUser;
-
-	private String login, password, email, role;
+	
+	
+	private String login;
+	
+	private String password;
+	private String email;
 	private int numberOfWin, numberOfAllGame;
 
-	
+	@Transient
+	private String passwordConfirm;
 
+	@ManyToMany(fetch = FetchType.EAGER)
+	private Set<Role> roles;
+///////////////
 	public Long getIdUser() {
 		return idUser;
 	}
@@ -75,27 +91,21 @@ public class user_information implements Serializable {
 		this.numberOfAllGame = numberOfAllGame;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 
 	///////////////////////////////////
 
 	public user_information(String login, String password, String email) {
 		this.login = login;
 		this.password = password;
-		this.email=email;
+		this.email = email;
 		numberOfAllGame = 0;
 		numberOfWin = 0;
-		role="USER";
-	}
-	
-	public user_information(){
 		
+	}
+
+	public user_information() {
+
 	}
 
 	///////////////////////////////////
@@ -120,70 +130,104 @@ public class user_information implements Serializable {
 
 	////////////// Роли//////////////////
 
-	public Set<Role> getUserRoles() {
-		Set<Role> userRoles = new HashSet<>();
+	/*
+	 * public Set<Role> getUserRoles() { Set<Role> userRoles = new HashSet<>();
+	 * 
+	 * if (role != null && role.length() > 0) {
+	 * 
+	 * String[] rolesArr = role.split(","); for (String role : rolesArr) {
+	 * userRoles.add(Role.valueOf(role)); } }
+	 * 
+	 * return userRoles; }
+	 * 
+	 * public String getHighLevelRole() {
+	 * 
+	 * List<String> allRoles = new ArrayList<>();
+	 * 
+	 * for (Role role : this.getUserRoles()) { allRoles.add(role.toString()); }
+	 * 
+	 * if (allRoles.contains(Role.ADMIN.toString())) { return Role.ADMIN.toString();
+	 * } else if (allRoles.contains(Role.MANAGER.toString())) { return
+	 * Role.MANAGER.toString(); } else { return Role.USER.toString(); }
+	 * 
+	 * }
+	 * 
+	 * public List<String> getRolesList() { List<String> list = new ArrayList<>();
+	 * 
+	 * this.getUserRoles().toArray();
+	 * 
+	 * for (Role role : this.getUserRoles()) { list.add(role.toString()); }
+	 * 
+	 * return list; }
+	 * 
+	 * public void addRole(Role role) { Set<Role> roleSet = this.getUserRoles();
+	 * roleSet.add(role);
+	 * 
+	 * this.roles = convertRoleSetToString(roleSet); }
+	 * 
+	 * public void removeRole(Role role) { Set<Role> roleSet = this.getUserRoles();
+	 * roleSet.remove(role);
+	 * 
+	 * this.role = convertRoleSetToString(roleSet); }
+	 * 
+	 * private String convertRoleSetToString(Set<Role> roleSet) { List<String>
+	 * roleArr = new ArrayList<>(roleSet.size()); roleSet.forEach(c ->
+	 * roleArr.add(c.toString()));
+	 * 
+	 * return String.join(",", roleArr); }
+	 */
 
-		if (role != null && role.length() > 0) {
-
-			String[] rolesArr = role.split(",");
-			for (String role : rolesArr) {
-				userRoles.add(Role.valueOf(role));
-			}
-		}
-
-		return userRoles;
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public String getHighLevelRole() {
-
-		List<String> allRoles = new ArrayList<>();
-
-		for (Role role : this.getUserRoles()) {
-			allRoles.add(role.toString());
-		}
-
-		if (allRoles.contains(Role.ADMIN.toString())) {
-			return Role.ADMIN.toString();
-		} else if (allRoles.contains(Role.MANAGER.toString())) {
-			return Role.MANAGER.toString();
-		} else {
-			return Role.USER.toString();
-		}
-
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 
-	public List<String> getRolesList() {
-		List<String> list = new ArrayList<>();
-
-		this.getUserRoles().toArray();
-
-		for (Role role : this.getUserRoles()) {
-			list.add(role.toString());
-		}
-
-		return list;
+	///////////////// Конец Ролей//////////////////////
+	public String getPasswordConfirm() {
+		return passwordConfirm;
 	}
 
-	public void addRole(Role role) {
-		Set<Role> roleSet = this.getUserRoles();
-		roleSet.add(role);
-
-		this.role = convertRoleSetToString(roleSet);
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
-	public void removeRole(Role role) {
-		Set<Role> roleSet = this.getUserRoles();
-		roleSet.remove(role);
-
-		this.role = convertRoleSetToString(roleSet);
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return getRoles();
 	}
 
-	private String convertRoleSetToString(Set<Role> roleSet) {
-		List<String> roleArr = new ArrayList<>(roleSet.size());
-		roleSet.forEach(c -> roleArr.add(c.toString()));
-
-		return String.join(",", roleArr);
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return login;
 	}
-	/////////////////Конец Ролей//////////////////////
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
 
 }

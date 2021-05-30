@@ -12,7 +12,7 @@ import com.example.pvp_knights.dataBase.models.user_information;
 @Repository
 public interface user_information_Repository extends JpaRepository<user_information, Long> {
 
-	List<user_information> findByLogin(String Login);
+	user_information findByLogin(String Login);
 	
 	
 	
