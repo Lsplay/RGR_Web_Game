@@ -1,10 +1,8 @@
 package com.example.pvp_knights.dataBase.models;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -18,7 +16,6 @@ import javax.persistence.Transient;
 
 
 
-import org.hibernate.annotations.ManyToAny;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -101,7 +98,6 @@ public class user_information implements UserDetails {
 		this.email = email;
 		numberOfAllGame = 0;
 		numberOfWin = 0;
-		
 	}
 
 	public user_information() {
