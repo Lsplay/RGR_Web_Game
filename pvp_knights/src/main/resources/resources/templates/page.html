@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns:=http://www.w3.org/1999/xhtml>
 
 <head>
 <meta charset="UTF-8">
@@ -13,24 +13,26 @@
 		<tr>
 			<td class="leftside">
 				<table class="nestedtable">
-					<tr><td class="menubuttons"><button class="profilebutton">ПРОФИЛЬ</button><button class="friendbutton">ДРУЗЬЯ</button></td></tr>
+					<tr>
+						<td class="menubuttons"><button class="profilebutton"
+								th:text="${user.login}"></button>
+							<button class="friendbutton">ДРУЗЬЯ</button></td>
+					</tr>
 					<tr>
 						<td class="playerstopsection">
 							<div class="playerstopdiv">
 								<label class="toptitle">ТОП РЫЦАРЕЙ</label>
-								<ol class="playerstop">	
-									<li class="firstintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="secondintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="thirdintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
-									<li class="othersintop"><span class="topcontent">***</span><span class="playersrating">****</span></li>
+								<ol class="playerstop">
+									<div th:each="el : ${rating}" id="show">
+										<h3 id="id_user" th:text="'ID:' +  ${el.id}" />
+										<h3 th:text="  ${el.login}" />
+										<p th:text=" ${el.rating}" />
+									</div>
 								</ol>
-								<ol start="666" class="youintoplist"><li class="youintop"><span class="yourtopcontent">***</span><span class="yourrating">****</span></li></ol>
+								<ol start="666" class="youintoplist">
+									<li class="youintop"><span class="yourtopcontent">***</span><span
+										class="yourrating" th:text="${user.login}"></span></li>
+								</ol>
 							</div>
 						</td>
 					</tr>
@@ -38,8 +40,13 @@
 			</td>
 			<td class="centerside">
 				<table class="nestedtable">
-					<tr><td class="logotype"><img src="images/main/logotype.png" height="532"></td></tr>
-					<tr><td><button class="fightbutton">В БОЙ!</button></td></tr>
+					<tr>
+						<td class="logotype"><img src="images/main/logotype.png"
+							height="532"></td>
+					</tr>
+					<tr>
+						<td><button class="fightbutton">В БОЙ!</button></td>
+					</tr>
 				</table>
 			</td>
 			<td class="rightside">
@@ -48,20 +55,53 @@
 						<td class="settings">
 							<table>
 								<tr>
-									<td><button class="rusbutton"/><button class="engbutton"/></td>
-									<td><div class="volumebutton"><img src="images/main/volume.png" height="132" class="volumepng"><div class="volumerangediv"><input type="range" class="volumerange"></div></div></td>
+									<td><button class="rusbutton" />
+										<button class="engbutton" /></td>
+									<td><div class="volumebutton">
+											<img src="images/main/volume.png" height="132"
+												class="volumepng">
+											<div class="volumerangediv">
+												<input type="range" class="volumerange">
+											</div>
+										</div></td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 					<tr>
 						<td class="chatsection">
-							<div class="chatwindow"><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p>
-							<p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p>
-							<p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p></div>
-							
-							<input class="chatinput" type="text" size="80%"/>
-							<input class="sendbutton" type="submit" value="▶"/>
+							<div class="chatwindow">
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+								<p>*</p>
+							</div> <input class="chatinput" type="text" size="80%" /> <input
+							class="sendbutton" type="submit" value="▶" />
 						</td>
 					</tr>
 				</table>
