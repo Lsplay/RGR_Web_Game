@@ -15,46 +15,38 @@ import com.example.pvp_knights.dataBase.data.user_information_service;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-@Autowired
+	@Autowired
 	user_information_service userService;
-	
+
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
+
 	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception{
-		httpSecurity
-			.csrf()
-				.disable()
-					.authorizeRequests()
-									//Только те, кто не зарегестрированны
-						.antMatchers("/registration").not().fullyAuthenticated() 
-						.antMatchers("/css/**", "/images/**","/js/**","/jquery/**","/fonts/**").permitAll()
-									//Админы
-						.antMatchers("/admin/**").hasRole("ADMIN")
-									//Обычные Пользователи
-						.antMatchers("/news").hasRole("USER")
-									//Все, кто авторизован
-						.antMatchers("/","/game/**").permitAll()
-						.anyRequest().authenticated()
-						.and()
-						//Для входа в систему
-								.formLogin()
-								.loginPage("/login")
-								//При успешном входе перенаправление на главную страницу
-								.defaultSuccessUrl("/").permitAll()
-						.and()
-								//Перенаправление при выходе
-								.logout()
-								.permitAll().logoutSuccessUrl("/");
-		
+	protected void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable().authorizeRequests()
+				// Только те, кто не зарегестрированны
+				.antMatchers("/registration", "/start/**").not().fullyAuthenticated()
+				.antMatchers("/css/**", "/images/**", "/js/**", "/jquery/**", "/fonts/**").permitAll()
+				// Админы
+				.antMatchers("/admin/**").hasRole("ADMIN")
+				// Обычные Пользователи
+				.antMatchers("/news").hasRole("USER")
+				// Все, кто авторизован
+				.antMatchers("/", "/game/**").permitAll().anyRequest().authenticated().and()
+				// Для входа в систему
+				.formLogin()
+				// При успешном входе перенаправление на главную страницу
+				.defaultSuccessUrl("/").permitAll().and()
+				// Перенаправление при выходе
+				.logout().permitAll().logoutSuccessUrl("/start");
+
 	}
-	
+
 	@Autowired
 	protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userService).passwordEncoder(bCryptPasswordEncoder());
 	}
-	
+
 }
