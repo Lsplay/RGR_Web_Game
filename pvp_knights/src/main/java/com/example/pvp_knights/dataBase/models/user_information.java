@@ -23,13 +23,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class user_information implements UserDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue
 	@Column(name = "user_id")
 	private Long idUser;
 	
 	
 	private String login;
-	
+	private float rating;
 	private String password;
 	private String email;
 	private int numberOfWin, numberOfAllGame;
@@ -40,8 +40,18 @@ public class user_information implements UserDetails {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
 ///////////////
+	
+	
 	public Long getIdUser() {
 		return idUser;
+	}
+
+	public float getRating() {
+		return rating;
+	}
+
+	public void setRating(float rating) {
+		rating = rating;
 	}
 
 	public void setIdUser(Long idUser) {
@@ -98,6 +108,7 @@ public class user_information implements UserDetails {
 		this.email = email;
 		numberOfAllGame = 0;
 		numberOfWin = 0;
+		rating=0;
 	}
 
 	public user_information() {
@@ -126,52 +137,7 @@ public class user_information implements UserDetails {
 
 	////////////// Роли//////////////////
 
-	/*
-	 * public Set<Role> getUserRoles() { Set<Role> userRoles = new HashSet<>();
-	 * 
-	 * if (role != null && role.length() > 0) {
-	 * 
-	 * String[] rolesArr = role.split(","); for (String role : rolesArr) {
-	 * userRoles.add(Role.valueOf(role)); } }
-	 * 
-	 * return userRoles; }
-	 * 
-	 * public String getHighLevelRole() {
-	 * 
-	 * List<String> allRoles = new ArrayList<>();
-	 * 
-	 * for (Role role : this.getUserRoles()) { allRoles.add(role.toString()); }
-	 * 
-	 * if (allRoles.contains(Role.ADMIN.toString())) { return Role.ADMIN.toString();
-	 * } else if (allRoles.contains(Role.MANAGER.toString())) { return
-	 * Role.MANAGER.toString(); } else { return Role.USER.toString(); }
-	 * 
-	 * }
-	 * 
-	 * public List<String> getRolesList() { List<String> list = new ArrayList<>();
-	 * 
-	 * this.getUserRoles().toArray();
-	 * 
-	 * for (Role role : this.getUserRoles()) { list.add(role.toString()); }
-	 * 
-	 * return list; }
-	 * 
-	 * public void addRole(Role role) { Set<Role> roleSet = this.getUserRoles();
-	 * roleSet.add(role);
-	 * 
-	 * this.roles = convertRoleSetToString(roleSet); }
-	 * 
-	 * public void removeRole(Role role) { Set<Role> roleSet = this.getUserRoles();
-	 * roleSet.remove(role);
-	 * 
-	 * this.role = convertRoleSetToString(roleSet); }
-	 * 
-	 * private String convertRoleSetToString(Set<Role> roleSet) { List<String>
-	 * roleArr = new ArrayList<>(roleSet.size()); roleSet.forEach(c ->
-	 * roleArr.add(c.toString()));
-	 * 
-	 * return String.join(",", roleArr); }
-	 */
+	
 
 	public Set<Role> getRoles() {
 		return roles;

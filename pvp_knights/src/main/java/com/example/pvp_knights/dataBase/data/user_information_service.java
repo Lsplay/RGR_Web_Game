@@ -1,13 +1,17 @@
 package com.example.pvp_knights.dataBase.data;
 
 
-import java.util.Collection;
+
+
+
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -57,6 +61,8 @@ public class user_information_service implements UserDetailsService {
 	public List<user_information> allUsers() {
 		return userRepo.findAll();
 	}
+	
+	
 
 	public boolean saveUser(user_information user) {
 		user_information userFromDb = userRepo.findByLogin(user.getUsername());
