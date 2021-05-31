@@ -26,6 +26,13 @@ public class RegController {
 
 		return "registration";
 	}
+	
+	@GetMapping("/start")
+	public String start(Model model) {
+		model.addAttribute("userForm", new user_information());
+
+		return "start";
+	}
 
 	@PostMapping("/registration")
 	public String addUser(@ModelAttribute("userForm") user_information userForm, BindingResult bindingResult,

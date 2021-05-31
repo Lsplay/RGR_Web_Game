@@ -36,6 +36,5 @@ public class AdminMenuController {
 	public String gtUser(@PathVariable("userId") Long userId, Model model) {
 		model.addAttribute("allUsers", userService.usergtList(userId));
 		return "admin";
-		
 	}
 }
