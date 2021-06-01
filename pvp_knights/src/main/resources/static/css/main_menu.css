@@ -148,19 +148,19 @@ padding:0px
 }
 
 .rusbutton {
-	background-image: url(rusbutton.png);
+	background-image: url(images/main/rusbutton.png);
     right: 18%;
 }
 .engbutton {
-	background-image: url(engbutton.png);
+	background-image: url(images/main/engbutton.png);
 	right: 9%;
 }
 
-.rusbutton:hover { background-image: url(rusbuttonhover.png); }
-.engbutton:hover { background-image: url(engbuttonhover.png); }
+.rusbutton:hover { background-image: url(images/main/rusbuttonhover.png); }
+.engbutton:hover { background-image: url(images/main/engbuttonhover.png); }
 
-.rusbutton:active { background-image: url(rusbuttonactive.png); }
-.engbutton:active { background-image: url(engbuttonactive.png); }
+.rusbutton:active { background-image: url(images/main/rusbuttonactive.png); }
+.engbutton:active { background-image: url(images/main/engbuttonactive.png); }
 
 .volumebutton {
 	position: absolute;
