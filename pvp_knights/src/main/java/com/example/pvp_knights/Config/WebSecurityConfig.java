@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// Обычные Пользователи
 				.antMatchers("/news").hasRole("USER")
 				// Все, кто авторизован
-				.antMatchers("/", "/game/**").permitAll().anyRequest().authenticated().and()
+				.antMatchers("/", "/game/**").authenticated().and()
 				// Для входа в систему
 				.formLogin()
 				// При успешном входе перенаправление на главную страницу
