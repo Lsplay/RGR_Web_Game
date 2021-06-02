@@ -22,10 +22,9 @@
 							<div class="playerstopdiv">
 								<label class="toptitle">ТОП РЫЦАРЕЙ</label>
 								<ol class="playerstop">
-									<div th:each="el : ${rating}" id="show">
-										<h3 id="id_user" th:text="'ID:' +  ${el.id}" />
-										<h3 th:text="  ${el.login}" />
-										<p th:text=" ${el.rating}" />
+									<div th:each="el:${rating}" id="show" class="firstintop">
+										<h6 th:text="  ${el.login} + '-'+ ${el.rating}" />
+										
 									</div>
 								</ol>
 								<ol start="666" class="youintoplist">

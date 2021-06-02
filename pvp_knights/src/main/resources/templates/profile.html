@@ -21,10 +21,12 @@
 				<div class="signup-content">
 					<div class="signup-form">
 						<h2 class="form-title">Profile</h2>
-						<h2 class="form-title" th:text="${user.login}"></h2>
-						<h2 class="form-title" th:text="${user.email}"></h2>
-						<h2 class="form-title" th:text="${user.rating}"></h2>
+						<h2 class="form-title" th:text="'Login '+${user.login}"></h2>
 						
+						<h2 class="form-title" th:text="'Rating '+${user.rating}"></h2>
+						<h2 class="form-title" th:text="'All games '+${user.numberOfAllGame}"></h2>
+						<h2 class="form-title" th:text="'Wins '+${user.numberOfWin}"></h2>
+						<a href="/">Return to main_menu</a>
 					</div>
 					<div class="signup-image">
 						<figure>
