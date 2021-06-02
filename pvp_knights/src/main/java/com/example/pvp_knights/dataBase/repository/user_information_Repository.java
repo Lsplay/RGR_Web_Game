@@ -13,7 +13,8 @@ public interface user_information_Repository extends JpaRepository<user_informat
 
 	user_information findByLogin(String Login);
 	List<user_information> findByOrderByRatingDesc();
-	
-	
+	Iterable<user_information> findTop10ByOrderByRatingDesc();
+	//@Query("FROM role ORDER BY rating DESC LIMIT 10 ")
+//	Iterable<user_information> findTopUser();
 	
 }

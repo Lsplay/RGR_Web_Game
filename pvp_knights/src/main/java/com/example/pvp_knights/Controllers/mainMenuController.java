@@ -1,6 +1,7 @@
 package com.example.pvp_knights.Controllers;
 
 import java.security.Principal;
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +29,10 @@ public class mainMenuController {
 	
 	@GetMapping("/")
 	public String main_menu(Principal printipal, Model model) {
-		
+		Iterable<user_information> rating=userRepo.findTop10ByOrderByRatingDesc();
 		user_information user = (user_information) userService.loadUserByUsername(printipal.getName());
 		  model.addAttribute("user", user);
-		  
+		  model.addAttribute("rating",rating);
 		return "page";
 	}
 	
