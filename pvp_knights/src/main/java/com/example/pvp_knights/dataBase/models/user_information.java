@@ -1,6 +1,5 @@
 package com.example.pvp_knights.dataBase.models;
 
-
 import java.util.Collection;
 
 import java.util.Set;
@@ -25,12 +24,12 @@ public class user_information implements UserDetails {
 	@GeneratedValue
 	@Column(name = "user_id")
 	private Long idUser;
-	
-	
+
 	private String login;
 	private float rating;
 	private String password;
 	private String email;
+	public String activationCode;
 	private int numberOfWin, numberOfAllGame;
 
 	@Transient
@@ -39,8 +38,7 @@ public class user_information implements UserDetails {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
 ///////////////
-	
-	
+
 	public Long getIdUser() {
 		return idUser;
 	}
@@ -97,7 +95,13 @@ public class user_information implements UserDetails {
 		this.numberOfAllGame = numberOfAllGame;
 	}
 
-	
+	public String getActivationCode() {
+		return activationCode;
+	}
+
+	public void setActivationCode(String activationCode) {
+		this.activationCode = activationCode;
+	}
 
 	///////////////////////////////////
 
@@ -107,11 +111,16 @@ public class user_information implements UserDetails {
 		this.email = email;
 		numberOfAllGame = 0;
 		numberOfWin = 0;
-		rating=0;
+		rating = 0;
 	}
 
 	public user_information() {
 
+	}
+
+	public user_information(String login, String password) {
+		this.login = login;
+		this.password = password;
 	}
 
 	///////////////////////////////////
@@ -135,8 +144,6 @@ public class user_information implements UserDetails {
 	}
 
 	////////////// Роли//////////////////
-
-	
 
 	public Set<Role> getRoles() {
 		return roles;

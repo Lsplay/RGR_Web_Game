@@ -1,17 +1,12 @@
 package com.example.pvp_knights.dataBase.data;
 
-
-
-
-
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.example.pvp_knights.dataBase.models.Role;
 import com.example.pvp_knights.dataBase.models.user_information;
@@ -38,11 +34,14 @@ public class user_information_service implements UserDetailsService {
 	RoleRepository roleRepo;
 
 	@Autowired
+	private MailSender mailSender;
+
+	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	//////////////////////////////////////////////////
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public user_information loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		user_information user = userRepo.findByLogin(username);
 
@@ -61,8 +60,6 @@ public class user_information_service implements UserDetailsService {
 	public List<user_information> allUsers() {
 		return userRepo.findAll();
 	}
-	
-	
 
 	public boolean saveUser(user_information user) {
 		user_information userFromDb = userRepo.findByLogin(user.getUsername());
@@ -73,7 +70,19 @@ public class user_information_service implements UserDetailsService {
 
 		user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActivationCode(UUID.randomUUID().toString());
+
 		userRepo.save(user);
+
+		if (user.getEmail() != null) {
+			String subject = "Activation code";
+
+			String message = String.format("Hello, %s! \n"
+					+ "Welcome to PWPKnights. Please, visit next link to activate account : http://localhost:8080/activate/%s",
+					user.getLogin(), user.getActivationCode());
+			mailSender.send(user.getEmail(), subject, message);
+		}
+
 		return true;
 	}
 
@@ -85,8 +94,25 @@ public class user_information_service implements UserDetailsService {
 		return false;
 	}
 
-	public List<user_information> usergtList(Long idMin){
-		return em.createQuery("SELECT u FROM user_information u WHERE u.id > :paramId",user_information.class).setParameter("paramId",idMin).getResultList();
+	public List<user_information> usergtList(Long idMin) {
+		return em.createQuery("SELECT u FROM user_information u WHERE u.id > :paramId", user_information.class)
+				.setParameter("paramId", idMin).getResultList();
+	}
+
+///////
+	public boolean activateUser(String code) {
+
+		user_information user = userRepo.findByActivationCode(code);
+
+		if (user == null) {
+			return false;
+		}
+
+		user.setActivationCode(null);
+
+		userRepo.save(user);
+
+		return true;
 	}
 
 }
