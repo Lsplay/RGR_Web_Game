@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title th:text="${title}" />
+
+<!-- Font Icon -->
+<link rel="stylesheet"
+	href="fonts/registration-material-icon/css/material-design-iconic-font.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<!-- Main css -->
+<link rel="stylesheet" href="css/registration.css">
+</head>
+<body>
+	<div class="main">
+		<section class="sign-in">
+
+			<div class="container">
+
+				<div class="signin-content">
+
+					<div class="signin-image">
+						<figure>
+							<img src="images/reg/signin-image.jpg" alt="sing up image">
+						</figure>
+						<a href="#" class="signup-image-link">Create an account</a>
+					</div>
+
+					<div class="signin-form">
+
+						<p th:if="${loginError}" class="error">Wrong user or password</p>
+						<h2 class="form-title">Sign in</h2>
+						<form th:method="POST" th:action="@{/login}" class="register-form"
+							id="login-form">
+							<div class="form-group">
+								<label for="your_name"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="username" id="login" placeholder="Login" />
+							</div>
+							<div class="form-group">
+								<label for="your_pass"><i class="zmdi zmdi-lock"></i></label> <input
+									type="password" name="password" id="your_pass"
+									placeholder="Password" />
+							</div>
+
+							<div class="form-group form-button">
+								<input type="submit" name="signin" id="signin"
+									class="form-submit" value="Log in" />
+							</div>
+
+						</form>
+						<a href="/registration" class="form-submit">I wan't to
+							register</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="jquery/jquery.min.js"></script>
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
