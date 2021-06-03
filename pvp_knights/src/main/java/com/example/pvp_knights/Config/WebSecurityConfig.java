@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
 				// Только те, кто не зарегестрированны
-				.antMatchers("/registration", "/start/**").not().fullyAuthenticated()
+				.antMatchers("/registration", "/start/**", "/activate/*").not().fullyAuthenticated()
 				.antMatchers("/css/**", "/images/**", "/js/**", "/jquery/**", "/fonts/**").permitAll()
 				// Админы
 				.antMatchers("/admin/**").hasRole("ADMIN")
@@ -36,11 +36,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				// Все, кто авторизован
 				.antMatchers("/", "/game/**").authenticated().and()
 				// Для входа в систему
-				.formLogin()
+				.formLogin().loginPage("/login")
 				// При успешном входе перенаправление на главную страницу
 				.defaultSuccessUrl("/").permitAll().and()
 				// Перенаправление при выходе
-				.logout().permitAll().logoutSuccessUrl("/start");
+				.logout().permitAll().logoutSuccessUrl("/login");
 
 	}
 
