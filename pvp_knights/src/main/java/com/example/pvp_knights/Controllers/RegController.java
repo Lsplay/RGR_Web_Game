@@ -1,6 +1,5 @@
 package com.example.pvp_knights.Controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,11 +7,13 @@ import org.springframework.validation.BindingResult;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 
 import com.example.pvp_knights.dataBase.data.user_information_service;
 import com.example.pvp_knights.dataBase.models.user_information;
+
+import net.bytebuddy.dynamic.scaffold.MethodGraph.NodeList;
 
 @Controller
 public class RegController {
@@ -26,7 +27,7 @@ public class RegController {
 
 		return "registration";
 	}
-	
+
 	@GetMapping("/start")
 	public String start(Model model) {
 		model.addAttribute("userForm", new user_information());
@@ -50,7 +51,24 @@ public class RegController {
 			return "registration";
 		}
 
-		return "redirect:/";
+		return "redirect:/login";
+	}
+
+	///// почта
+
+	@GetMapping("/activate/{code}")
+	public String activate(Model model, @PathVariable String code) {
+
+		boolean isActivated = userService.activateUser(code);
+
+		if (isActivated) {
+			model.addAttribute("message", "User successfull activated");
+
+		} else {
+			model.addAttribute("message", "Activation code is not found");
+		}
+
+		return "login";
 	}
 
 }
