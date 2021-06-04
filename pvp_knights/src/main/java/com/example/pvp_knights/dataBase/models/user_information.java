@@ -32,6 +32,7 @@ public class user_information implements UserDetails {
 	public String activationCode;
 	private int numberOfWin, numberOfAllGame;
 	public boolean active;
+	public int combo;
 
 	@Transient
 	private String passwordConfirm;
@@ -39,9 +40,19 @@ public class user_information implements UserDetails {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
 ///////////////
-
+ 
+	
+	
 	public Long getIdUser() {
 		return idUser;
+	}
+
+	public int getCombo() {
+		return combo;
+	}
+
+	public void setCombo(int combo) {
+		this.combo = combo;
 	}
 
 	public int getRating() {
@@ -208,6 +219,26 @@ public class user_information implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	
+	
+	public boolean isCombo0() {
+		if(combo==0) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isCombo1() {
+		if(combo==1) {
+			return true;
+		}
+		return false;
+	}
+	public boolean isCombo2() {
+		if(combo==2) {
+			return true;
+		}
+		return false;
 	}
 
 }

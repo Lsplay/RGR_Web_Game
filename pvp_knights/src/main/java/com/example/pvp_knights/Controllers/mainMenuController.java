@@ -27,7 +27,7 @@ public class mainMenuController {
 	@Autowired
 	user_information_Repository userRepo;
 	
-	@GetMapping("/")
+	@GetMapping("/page")
 	public String main_menu(Principal printipal, Model model) {
 		Iterable<user_information> rating=userRepo.findTop10ByOrderByRatingDesc();
 		user_information user = (user_information) userService.loadUserByUsername(printipal.getName());
