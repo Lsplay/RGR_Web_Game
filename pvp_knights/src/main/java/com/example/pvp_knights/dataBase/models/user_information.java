@@ -26,11 +26,12 @@ public class user_information implements UserDetails {
 	private Long idUser;
 
 	private String login;
-	private float rating;
+	private int rating;
 	private String password;
 	private String email;
 	public String activationCode;
 	private int numberOfWin, numberOfAllGame;
+	public boolean active;
 
 	@Transient
 	private String passwordConfirm;
@@ -43,12 +44,12 @@ public class user_information implements UserDetails {
 		return idUser;
 	}
 
-	public float getRating() {
+	public int getRating() {
 		return rating;
 	}
 
-	public void setRating(float rating) {
-		rating = rating;
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 	public void setIdUser(Long idUser) {
@@ -103,7 +104,17 @@ public class user_information implements UserDetails {
 		this.activationCode = activationCode;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
 	///////////////////////////////////
+
+	
 
 	public user_information(String login, String password, String email) {
 		this.login = login;
@@ -111,17 +122,18 @@ public class user_information implements UserDetails {
 		this.email = email;
 		numberOfAllGame = 0;
 		numberOfWin = 0;
-		rating = 0;
+		rating = 1000;
 	}
 
 	public user_information() {
-
+		
 	}
 
 	public user_information(String login, String password) {
 		this.login = login;
 		this.password = password;
 	}
+	
 
 	///////////////////////////////////
 	@Override

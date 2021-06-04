@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
 				// Только те, кто не зарегестрированны
-				.antMatchers("/registration", "/start/**", "/activate/*").not().fullyAuthenticated()
+				.antMatchers("/registration", "/start/**","/chat/add", "/activate/*").not().fullyAuthenticated()
 				.antMatchers("/css/**", "/images/**", "/js/**", "/jquery/**", "/fonts/**").permitAll()
 				// Админы
 				.antMatchers("/admin/**").hasRole("ADMIN")

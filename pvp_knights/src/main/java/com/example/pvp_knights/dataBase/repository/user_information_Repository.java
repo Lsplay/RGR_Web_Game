@@ -19,4 +19,5 @@ public interface user_information_Repository extends JpaRepository<user_informat
 
 	user_information findByActivationCode(String code);
 
+	Iterable<user_information> findByActiveTrue();
 }

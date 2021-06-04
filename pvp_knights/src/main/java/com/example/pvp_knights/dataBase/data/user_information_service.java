@@ -67,11 +67,11 @@ public class user_information_service implements UserDetailsService {
 		if (userFromDb != null) {
 			return false;
 		}
-
+		int i=1000;
 		user.setRoles(Collections.singleton(new Role(1L, "ROLE_USER")));
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActivationCode(UUID.randomUUID().toString());
-
+		user.setRating(i);
 		userRepo.save(user);
 
 		if (user.getEmail() != null) {
@@ -114,5 +114,14 @@ public class user_information_service implements UserDetailsService {
 
 		return true;
 	}
-
+///
+	public user_information getById(Long id) {
+		Optional<user_information> userOptional = userRepo.findById(id);
+		if (userOptional.isPresent()) {
+			return userOptional.get();
+		}
+		return null;
+	}
+	
+	
 }
