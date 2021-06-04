@@ -1,0 +1,259 @@
+html,body{
+height:100%;
+margin:0px;
+padding:0px;
+background-color: black;
+}
+
+.battlefield {
+	position: relative;
+	height: 98%;
+	width: 99%;
+	background-color: #c3c3c3;
+	border: 6px solid black;
+}
+
+.giveupbutton {
+	position: absolute;
+	top: 5px;
+	left: 6px;
+	height: 140px;
+	width: 140px;
+	border: 6px solid black;
+	border-radius: 20px;
+	background-color: red;
+	background-image: url("giveupbutton.png"),
+	url("giveupbuttonhover.png"),
+	url("giveupbuttonactive.png");
+}
+.giveupbutton:hover {	background-image: url("giveupbuttonhover.png"); }
+.giveupbutton:active {	background-image: url("giveupbuttonactive.png"); }
+
+.timer {
+	position: relative;
+	height: 136px;
+	width: 1018px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.timerbackground {
+	position: absolute;
+	top: 0;
+	height: 136px;
+	width: 1018px;
+	background-image: url("timer.png");
+	
+	text-align: center;
+	font: bold 420% Segoe Print, cursive;
+	color: black;
+	text-shadow: white 0 0 20px;
+}
+
+.hpcolorbase {
+	height: 97%;
+	width: 60%;
+	margin-left: 20%;
+	border-collapse: collapse;
+}
+.hp11 {	background-color: #0ed145; }
+.hp12 {	background-color: #0ed145; }
+.hp13 {	background-color: #ec1c24; }
+.hp21 {	background-color: #0ed145; }
+.hp22 {	background-color: #ec1c24; }
+.hp23 {	background-color: #ec1c24; }
+
+.usersinfo {
+	position: absolute;
+	top: 0;
+	height: 70%;
+	width: 100%;
+	text-align: center;
+	font: bold 150% Segoe Print, cursive;
+}
+
+.timerspace { width: 30%; }
+
+.firstnick {
+	width: 35%;
+	color: #0ed145;
+}
+.secondnick {
+	width: 35%;
+	color: #ec1c24;
+}
+.firstrating, .secondrating { color: white; }
+
+.rusbutton, .engbutton {
+	position: absolute;
+	width: 87px;
+	height: 62px;
+	top: 5px;
+	border: 6px solid black;
+	border-radius: 20px;
+}
+.rusbutton {
+	background-color: white;
+	background-image: url(rusbutton.png),
+	url(rusbuttonhover.png),
+	url(rusbuttonactive.png);
+    right: 235px;
+}
+.engbutton {
+	background-color: red;
+	background-image: url(engbutton.png),
+	url(engbuttonhover.png),
+	url(engbuttonactive.png);
+	right: 143px;
+}
+.rusbutton:hover { background-image: url(rusbuttonhover.png); }
+.engbutton:hover { background-image: url(engbuttonhover.png); }
+.rusbutton:active { background-image: url(rusbuttonactive.png); }
+.engbutton:active { background-image: url(engbuttonactive.png); }
+	
+.volumebutton {
+	position: absolute;
+    right: 6px;
+	top: 5px;
+}
+.volumepng {
+	width: 120px;
+	border: 6px solid black;
+	border-radius: 20px 20px 0 0;
+}
+.volumerangediv {
+	width: 120px;
+	background-color: #0ed145;
+	border: 6px solid black;
+	border-radius: 0 0 20px 20px;
+}
+.volumerange { width: 115px; }
+
+.toppagehalf { height: 50%; }
+.attackbuttonsspace {
+	height: 50%;
+	width: 560px;
+	margin-left: auto;
+    margin-right: auto;
+}
+.attackbuttonsection {
+	height: 100%;
+	width: 100%;
+	border: 6px solid transparent;
+}
+.attackbuttonsmargintop { height: 100%; }
+.swordbutton, .shildbutton, .kickbutton {
+	width: 170px;
+	height: 170px;
+	border: 6px solid black;
+	border-radius: 100px;
+}
+.swordbutton {
+	background-color: #ffca18;
+	background-image: url(sword.png),
+	url(swordhover.png),
+	url(swordactive.png);
+}
+.shildbutton {
+	background-color: #ffca18;
+	background-image: url(shild.png),
+	url(shildhover.png),
+	url(shildactive.png);
+}
+.kickbutton {
+	background-color: #ffca18;
+	background-image: url(kick.png),
+	url(kickhover.png),
+	url(kickactive.png);
+}
+.swordbutton:hover { background-image: url(swordhover.png); }
+.shildbutton:hover { background-image: url(shildhover.png); }
+.kickbutton:hover { background-image: url(kickhover.png); }
+.swordbutton:active { background-image: url(swordactive.png); }
+.shildbutton:active { background-image: url(shildactive.png); }
+.kickbutton:active { background-image: url(kickactive.png); }
+
+.chatsection {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 250px;
+	width: 30%;
+	background-color: #585858;
+	border: 6px solid black;
+	border-width: 6px 0 0 6px;
+	border-radius: 20px 0 0 0;
+}
+
+.chatwindow {
+	height: 180px;
+	width: 98%;
+	margin: 1%;
+	overflow: scroll;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+.chatinput {
+	width: 83%;
+	margin: 1%;
+	background-color: #585858;
+	border: 6px solid black;
+	border-radius: 8px;
+	outline:none;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+.sendbutton {
+	width: 10%;
+	background-color: black;
+	border: 6px solid black;
+	border-radius: 8px;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+.sendbutton:hover { background-color: #444444 }
+.sendbutton:active { background-color: #333333 }
+
+.attackqueuesection{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 250px;
+	width: 30%;
+	background-color: #585858;
+	border: 6px solid black;
+	border-width: 6px 6px 0 0;
+	border-radius: 0 20px 0 0;
+}
+.attackqueuehead {
+	height:20%;
+	margin-left: 15px;
+	font: bold 300% Segoe Print, cursive;
+	color: white;
+}
+.attackqueue {
+	height: 50%;
+	width: 90%;
+	margin: 15px;
+	border-collapse: collapse;
+}
+.firstattack, .secondattack, .thirdattack {
+	width: 110px;
+	height: 110px;
+	border: 6px dotted black;
+	border-radius: 100px;
+	background-color: #6a6a6a;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+	height: 0px;
+    background-color: black;
+	border-radius: 9px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: black;
+	border-top: 8px groove #585858;
+	border-bottom: 8px ridge #585858;
+	border-radius: 9px;
+}
