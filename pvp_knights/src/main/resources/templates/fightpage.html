@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>PVPKnights: В БОЙ!</title>
+<link rel="stylesheet" type="text/css" href="css/fightstyle.css">
+</head>
+
+<body>
+	<div class="battlefield">
+		<button class="giveupbutton"></button>
+		<button class="rusbutton"></button><button class="engbutton"></button>
+		<div class="volumebutton"><img src="volume.png" class="volumepng"><div class="volumerangediv"><input type="range" class="volumerange"></div></div>
+	
+		<div class="toppagehalf">
+			<div class="timer">
+				<table class="hpcolorbase">
+					<tr><td class="hp11"></td><td class="hp21"></td></tr>
+					<tr><td class="hp12"></td><td class="hp22"></td></tr>
+					<tr><td class="hp13"></td><td class="hp23"></td></tr>
+				</table>
+				<div class="timerbackground">10</div>
+				<table class="usersinfo">
+					<tr><td class="firstnick">Вашникнейм</td><td class="timerspace"></td><td class="secondnick">Враганикнейм</td></tr>
+					<tr><td class="firstrating">4115</td><td></td><td class="secondrating">3998</td></tr>
+				</table>
+			</div>
+		</div>
+		<div class="attackbuttonsspace">
+			<table class="attackbuttonsection">
+				<tr class="attackbuttonsmargintop"><td></td><td></td><td></td></tr>
+				<tr><td><button class="swordbutton"></button></td><td><button class="shildbutton"></button></td><td><button class="kickbutton"></button></td></tr>
+			</table>
+		</div>
+		
+		<div class="attackqueuesection">
+			<span class="attackqueuehead">Серия атак:</span>
+			<table class="attackqueue">
+				<tr><td><img class="firstattack" style="border: 6px solid black;" src="sword.png"></img></td><td><img class="secondattack" src="transparent.png"></img></td><td><img class="thirdattack" src="transparent.png"></img></td></tr>
+			</table>
+		</div>
+		
+		<div class="chatsection">
+			<div class="chatwindow">
+				<ul class="messages"></ul>	
+			</div>
+			<input class="chatinput" id="message_input_value" type="text" size="80%" spellcheck="false"/>
+			<input class="sendbutton" type="submit" value=">"/>
+		</div>
+	</div>
+</body>
+
+</html>
