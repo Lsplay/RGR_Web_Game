@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Game</title>
-    </head>
-    <body>
-        <h1> Valhame </h1>
-        <button >Start Game</button>
-     
-    </body>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title th:text="${title}" />
+
+<!-- Font Icon -->
+<link rel="stylesheet"
+	href="fonts/registration-material-icon/css/material-design-iconic-font.min.css">
+
+<!-- Main css -->
+<link rel="stylesheet" href="css/registration.css">
+</head>
+<body>
+	<div class="main">
+		<section class="signup">
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<div th:each="el:${user}">
+							<h6 th:text="${el.login}"></h6>
+							<h6 th:text="${el.rating}"></h6>
+							<button th:text="fight"></button>
+						</div>
+					</div>
+					<div class="signup-image">
+						
+						
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<script src="jquery/jquery.min.js"></script>
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

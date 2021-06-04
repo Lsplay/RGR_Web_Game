@@ -20,13 +20,10 @@
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-						<h2 class="form-title">Profile</h2>
-						<h2 class="form-title" th:text="#{login}+${user.login}"></h2>
-						
-						<h2 class="form-title" th:text="#{rating}+${user.rating}"></h2>
-						<h2 class="form-title" th:text="#{allGame}+${user.numberOfAllGame}"></h2>
-						<h2 class="form-title" th:text="#{allWins}+${user.numberOfWin}"></h2>
-						<a  href="/logout" class="form-submit" th:text="#{logOut}"></a>
+						<form>
+						<input name="addFriend" type="text" >
+						<button type="submit" name="addFriends" th:text="add"/> 
+						</form>
 						<a href="/" class="form-submit" th:text="#{returnToMainMenu}"></a>
 					</div>
 					<div class="signup-image">
