@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns:=http://www.w3.org/1999/xhtml>
+<html xmlns:=http://www.w3.org/1999/xhtml xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -14,8 +14,8 @@
 			<td class="leftside">
 				<table class="nestedtable">
 					<tr>
-						<td class="menubuttons"><a class="profilebutton" href="/profile"> Профиль </a>
-							<a class="friendbutton" href="/frinds"> Друзья </a>
+						<td class="menubuttons"><a class="profilebutton" href="/profile" th:text="#{profileSection}"> </a>
+							<a class="friendbutton" href="/profile/friend" th:text="#{friend}"></a>
 					</tr>
 					<tr>
 						<td class="playerstopsection">
@@ -39,11 +39,11 @@
 			<td class="centerside">
 				<table class="nestedtable">
 					<tr>
-						<td class="logotype"><img src="images/main/logotype.png"
+						<td class="logotype"><img src="css/images/main/logotype.png"
 							height="532"></td>
 					</tr>
 					<tr>
-						<td><button class="fightbutton">В БОЙ!</button></td>
+						<td><button class="fightbutton" th:text="#{playButton}"></button></td>
 					</tr>
 				</table>
 			</td>
@@ -53,10 +53,10 @@
 						<td class="settings">
 							<table>
 								<tr>
-									<td><button class="rusbutton" />
-										<button class="engbutton" /></td>
+									<td><a class="rusbutton" href="/?lang=ru"/>
+										<a class="engbutton" href="/?lang=en"/></td>
 									<td><div class="volumebutton">
-											<img src="images/main/volume.png" height="132"
+											<img src="css/images/main/volume.png" height="132"
 												class="volumepng">
 											<div class="volumerangediv">
 												<input type="range" class="volumerange">
@@ -68,11 +68,14 @@
 					</tr>
 					<tr>
 						<td class="chatsection">
-							<div class="chatwindow" >
-							<ul class="messages"></ul>	
-							</div> <input class="message_input" id="message_input_value" type="text" size="80%" /> 
-							<button	class="sendbutton" type="submit" value="▶" onclick="sendMessage()"/>
-						</td>
+							<div class="chatwindow"  >
+								<div >
+								
+							</div> <form method="POST" action="/chat/add">
+							<input name="message" class="message_input" id="message_input_value" type="text" size="80%" >
+							<button	class="sendbutton" type="submit" value="▶" ></button>
+						</form>
+					  </td>
 					</tr>
 				</table>
 			</td>
