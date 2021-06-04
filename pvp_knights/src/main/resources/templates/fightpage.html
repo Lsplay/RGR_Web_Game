@@ -1,17 +1,18 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 <title>PVPKnights: В БОЙ!</title>
-<link rel="stylesheet" type="text/css" href="css/fightstyle.css">
+<link rel="stylesheet" type="text/css" href="/css/fightstyle.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
 	<div class="battlefield">
 		<button class="giveupbutton"></button>
 		<button class="rusbutton"></button><button class="engbutton"></button>
-		<div class="volumebutton"><img src="volume.png" class="volumepng"><div class="volumerangediv"><input type="range" class="volumerange"></div></div>
+		<div class="volumebutton"><img src="/css/images/main/volume.png" class="volumepng"><div class="volumerangediv"><input type="range" class="volumerange"></div></div>
 	
 		<div class="toppagehalf">
 			<div class="timer">
@@ -30,14 +31,14 @@
 		<div class="attackbuttonsspace">
 			<table class="attackbuttonsection">
 				<tr class="attackbuttonsmargintop"><td></td><td></td><td></td></tr>
-				<tr><td><button class="swordbutton"></button></td><td><button class="shildbutton"></button></td><td><button class="kickbutton"></button></td></tr>
+				<tr><td><button class="swordbutton" id="swordbutton"></button></td><td><button class="shildbutton" id="shildbutton" ></button></td><td><button class="kickbutton" id="kickbutton" ></button></td></tr>
 			</table>
 		</div>
 		
 		<div class="attackqueuesection">
 			<span class="attackqueuehead">Серия атак:</span>
 			<table class="attackqueue">
-				<tr><td><img class="firstattack" style="border: 6px solid black;" src="sword.png"></img></td><td><img class="secondattack" src="transparent.png"></img></td><td><img class="thirdattack" src="transparent.png"></img></td></tr>
+				<tr><td><img class="firstattack" id = "first" style="border: 6px solid black;"></img></td><td><img class="secondattack"  id= "second"></img></td><td><img class="thirdattack" id="third"></img></td></tr>
 			</table>
 		</div>
 		
@@ -49,6 +50,7 @@
 			<input class="sendbutton" type="submit" value=">"/>
 		</div>
 	</div>
+	<script type="text/javascript" src=/js/fight.js ></script>
 </body>
 
 </html>
