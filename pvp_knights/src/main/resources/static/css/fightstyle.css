@@ -22,12 +22,12 @@ background-color: black;
 	border: 6px solid black;
 	border-radius: 20px;
 	background-color: red;
-	background-image: url("giveupbutton.png"),
-	url("giveupbuttonhover.png"),
-	url("giveupbuttonactive.png");
+	background-image: url("images/fight/giveupbutton.png"),
+	url("images/fight/giveupbuttonhover.png"),
+	url("images/fight/giveupbuttonactive.png");
 }
-.giveupbutton:hover {	background-image: url("giveupbuttonhover.png"); }
-.giveupbutton:active {	background-image: url("giveupbuttonactive.png"); }
+.giveupbutton:hover {	background-image: url("images/fight/giveupbuttonhover.png"); }
+.giveupbutton:active {	background-image: url("images/fight/giveupbuttonactive.png"); }
 
 .timer {
 	position: relative;
@@ -42,7 +42,7 @@ background-color: black;
 	top: 0;
 	height: 136px;
 	width: 1018px;
-	background-image: url("timer.png");
+	background-image: url("images/fight/timer.png");
 	
 	text-align: center;
 	font: bold 420% Segoe Print, cursive;
@@ -94,22 +94,22 @@ background-color: black;
 }
 .rusbutton {
 	background-color: white;
-	background-image: url(rusbutton.png),
-	url(rusbuttonhover.png),
-	url(rusbuttonactive.png);
+	background-image: url(images/fight/rusbutton.png),
+	url(images/fight/rusbuttonhover.png),
+	url(images/fight/rusbuttonactive.png);
     right: 235px;
 }
 .engbutton {
 	background-color: red;
-	background-image: url(engbutton.png),
-	url(engbuttonhover.png),
-	url(engbuttonactive.png);
+	background-image: url(images/fight/engbutton.png),
+	url(images/fight/engbuttonhover.png),
+	url(images/fight/engbuttonactive.png);
 	right: 143px;
 }
-.rusbutton:hover { background-image: url(rusbuttonhover.png); }
-.engbutton:hover { background-image: url(engbuttonhover.png); }
-.rusbutton:active { background-image: url(rusbuttonactive.png); }
-.engbutton:active { background-image: url(engbuttonactive.png); }
+.rusbutton:hover { background-image: url(images/fight/rusbuttonhover.png); }
+.engbutton:hover { background-image: url(images/fight/engbuttonhover.png); }
+.rusbutton:active { background-image: url(images/fight/rusbuttonactive.png); }
+.engbutton:active { background-image: url(images/fight/engbuttonactive.png); }
 	
 .volumebutton {
 	position: absolute;
@@ -150,28 +150,28 @@ background-color: black;
 }
 .swordbutton {
 	background-color: #ffca18;
-	background-image: url(sword.png),
-	url(swordhover.png),
-	url(swordactive.png);
+	background-image: url(images/fight/sword.png),
+	url(images/fight/swordhover.png),
+	url(images/fight/swordactive.png);
 }
 .shildbutton {
 	background-color: #ffca18;
-	background-image: url(shild.png),
-	url(shildhover.png),
-	url(shildactive.png);
+	background-image: url(images/fight/shild.png),
+	url(images/fight/shildhover.png),
+	url(images/fight/shildactive.png);
 }
 .kickbutton {
 	background-color: #ffca18;
-	background-image: url(kick.png),
-	url(kickhover.png),
-	url(kickactive.png);
+	background-image: url(images/fight/kick.png),
+	url(images/fight/kickhover.png),
+	url(images/fight/kickactive.png);
 }
-.swordbutton:hover { background-image: url(swordhover.png); }
-.shildbutton:hover { background-image: url(shildhover.png); }
-.kickbutton:hover { background-image: url(kickhover.png); }
-.swordbutton:active { background-image: url(swordactive.png); }
-.shildbutton:active { background-image: url(shildactive.png); }
-.kickbutton:active { background-image: url(kickactive.png); }
+.swordbutton:hover { background-image: url(images/fight/swordhover.png); }
+.shildbutton:hover { background-image: url(images/fight/shildhover.png); }
+.kickbutton:hover { background-image: url(images/fight/kickhover.png); }
+.swordbutton:active { background-image: url(images/fight/swordactive.png); }
+.shildbutton:active { background-image: url(/image/fight/shildactive.png); }
+.kickbutton:active { background-image: url(image/fight/kickactive.png); }
 
 .chatsection {
 	position: absolute;

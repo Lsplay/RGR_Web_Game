@@ -2,11 +2,9 @@ html,body{
 height:100%;
 margin:0px;
 padding:0px
-background-color: black;
 }
 
 .base {
-	position: relative;
 	width: 100%;
 	height: 100%;
 	border:2px solid black;
@@ -37,19 +35,13 @@ background-color: black;
 	border: 7px solid black;
 	border-radius: 30px;
 	font: bold 300% Segoe Print, cursive;
+	
 }
-.profilehref, .friendhref {
-	text-decoration: none;
-}
-
 .profilebutton { color: #0ed145; }
 .friendbutton { color: #00a4fe; }
 
 .profilebutton:hover, .friendbutton:hover { background: #6e6e6e; }
 .profilebutton:active, .friendbutton:active { background: #444444; }
-
-.profilehref:visited { color: #0ed145; }
-.friendhref:visited { color: #00a4fe; }
 
 .playerstopsection { background-color: #585858; }
 
@@ -66,16 +58,38 @@ background-color: black;
 	height: 76%;
 	list-style-position: inside;
 }
+
+.firstintop {
+	font: bold 250% Segoe Print, cursive;
+	color: #fff200;
+	position: relative;
+}
+
+.secondintop {
+	font: bold 220% Segoe Print, cursive;
+	color: #c3c3c3;
+	position: relative;
+}
+
+.thirdintop {
+	font: bold 220% Segoe Print, cursive;
+	color: #b97a56;
+	position: relative;
+}
+
 .othersintop {
 	font: bold 200% Segoe Print, cursive;
 	color: white;
 	position: relative;
 }
 
-.youintop {
+.youintoplist {
 	width: 90%;
 	height: 10%;
-	margin-left: 5%;
+	list-style-position: inside;
+}
+
+.youintop {
 	font: bold 200% Segoe Print, cursive;
 	color: #0ed145;
 	position: relative;
@@ -100,9 +114,7 @@ background-color: black;
 	border: 5px solid black;
 }
 
-.logotype {
-	height: 70%;
-}
+.logotype { height: 70%; }
 
 .fightbutton {
 	width: 86%;
@@ -127,82 +139,53 @@ background-color: black;
 }
 
 .rusbutton, .engbutton {
-	position: absolute;
-	width: 87px;
-	height: 62px;
-	top: 5px;
-	border: 6px solid black;
+	width: 160px;
+	height: 110px;
+	border: 5px solid black;
 	border-radius: 20px;
+	position: absolute;
+	top: 1.5%;
 }
+
 .rusbutton {
-	background-color: white;
-	background-image: url(images/settings/rusbutton.png),
-	url(images/settings/rusbuttonhover.png),
-	url(images/settings/rusbuttonactive.png);
-    right: 235px;
+	background-image: url(images/main/rusbutton.png);
+    right: 18%;
 }
 .engbutton {
-	background-color: red;
-	background-image: url(images/settings/engbutton.png),
-	url(images/settings/engbuttonhover.png),
-	url(images/settings/engbuttonactive.png);
-	right: 143px;
+	background-image: url(images/main/engbutton.png);
+	right: 9%;
 }
-.rusbutton:hover { background-image: url(images/settings/rusbuttonhover.png); }
-.engbutton:hover { background-image: url(images/settings/engbuttonhover.png); }
-.rusbutton:active { background-image: url(images/settings/rusbuttonactive.png); }
-.engbutton:active { background-image: url(images/settings/engbuttonactive.png); }
-	
+
+.rusbutton:hover { background-image: url(images/main/rusbuttonhover.png); }
+.engbutton:hover { background-image: url(images/main/engbuttonhover.png); }
+
+.rusbutton:active { background-image: url(images/main/rusbuttonactive.png); }
+.engbutton:active { background-image: url(images/main/engbuttonactive.png); }
+
 .volumebutton {
 	position: absolute;
-    right: 6px;
-	top: 5px;
+    right: 1%;
+	top: 1.5%;
 }
+
 .volumepng {
-	width: 120px;
-	border: 6px solid black;
+	border: 5px solid black;
 	border-radius: 20px 20px 0 0;
 }
+
 .volumerangediv {
-	width: 120px;
 	background-color: #0ed145;
-	border: 6px solid black;
+	border: 5px solid black;
 	border-radius: 0 0 20px 20px;
 }
-.volumerange { width: 115px; }
 
 .chatsection { background-color: #585858; }
 
 .chatwindow {
 	height: 90%;
-	width: 98%;
-	margin: 1%;
+	width: 100%;
 	overflow: scroll;
-	font: bold 100% Segoe Print, cursive;
-	color: white;
 }
-
-.chatinput {
-	width: 83%;
-	margin: 1%;
-	background-color: #585858;
-	border: 5px solid black;
-	border-radius: 8px;
-	outline:none;
-	font: bold 100% Segoe Print, cursive;
-	color: white;
-}
-
-.sendbutton {
-	width: 10%;
-	background-color: black;
-	border: 5px solid black;
-	border-radius: 8px;
-	font: bold 100% Segoe Print, cursive;
-	color: white;
-}
-.sendbutton:hover { background-color: #444444 }
-.sendbutton:active { background-color: #333333 }
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -217,3 +200,25 @@ background-color: black;
 	border-bottom: 8px ridge #585858;
 	border-radius: 9px;
 }
+
+.chatinput {
+	width: 85%;
+	margin-top: 2%;
+	background-color: #585858;
+	border: 5px solid black;
+	border-radius: 8px;
+	outline:none;
+	font: bold 100% Segoe Print, cursive;
+}
+
+.sendbutton {
+	width: 10%;
+	background-color: black;
+	border: 5px solid black;
+	border-radius: 8px;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+
+.sendbutton:hover { background-color: #444444 }
+.sendbutton:active { background-color: #333333 }
