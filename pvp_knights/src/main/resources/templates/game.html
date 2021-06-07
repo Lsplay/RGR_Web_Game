@@ -23,7 +23,7 @@
 						<div th:each="el:${user}">
 							<h6 th:text="${el.login}"></h6>
 							<h6 th:text="${el.rating}"></h6>
-							<button th:text="fight"></button>
+								<a th:href="'/game/fightpart/' + ${el.idUser}" th:text="fight">
 						</div>
 					</div>
 					<div class="signup-image">
@@ -35,6 +35,7 @@
 		</section>
 	</div>
 	<script src="jquery/jquery.min.js"></script>
+	<script type="text/javascript" src=/js/fight_menu.js ></script>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
