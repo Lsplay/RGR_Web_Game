@@ -32,6 +32,7 @@ public class mainMenuController {
 		Iterable<user_information> rating=userRepo.findTop10ByOrderByRatingDesc();
 		user_information user = (user_information) userService.loadUserByUsername(printipal.getName());
 		user.setActive(false);
+		user.setHaveEnemy(false);
 		userRepo.save(user);
 		  model.addAttribute("user", user);
 		  model.addAttribute("rating",rating);
