@@ -30,22 +30,24 @@ public class GameController {
 	@GetMapping("/game")
 	public String gameStart(Principal prinсipal, Model model) {
 		user_information user = (user_information) userService.loadUserByUsername(prinсipal.getName());
-		if(user.isHaveEnemy()) {
-			String returning="redirect:/game/fightpart/"+user.getIdUser();
+		if (user.isHaveEnemy()) {
+			String returning = "redirect:/game/fightpart/" + user.getIdUser();
 			return returning;
 		}
-		
+
 		user.setActive(true);
 		userRepo.save(user);
 		Iterable<user_information> players = userRepo.findByActiveTrue();
 		model.addAttribute("user", players);
 		return "game";
 	}
-	
 
 	@GetMapping("/game/fightpart/{id}")
-	public String game(Principal prinсipal, Model model,@PathVariable(value="id")long id) {
+	public String game(Principal prinсipal, Model model, @PathVariable(value = "id") long id) {
 		user_information user = (user_information) userService.loadUserByUsername(prinсipal.getName());
+
+		user.setActive(false);
+		userRepo.save(user);
 		user_information userEnemy = userService.findUserById(id);
 		userEnemy.setHaveEnemy(true);
 		userRepo.save(userEnemy);
@@ -56,8 +58,7 @@ public class GameController {
 	public String takeAction(Principal principal, Model model,
 			@RequestParam(value = "action", required = false) String action) {
 		user_information user = (user_information) userService.loadUserByUsername(principal.getName());
-		
-		
+
 		return null;
 	}
 
