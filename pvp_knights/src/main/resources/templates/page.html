@@ -8,29 +8,31 @@
 </head>
 
 <body>
-
+	<div class="pagebase">
 	<table class="base">
 		<tr>
 			<td class="leftside">
 				<table class="nestedtable">
 					<tr>
-						<td class="menubuttons"><a class="profilebutton" href="/profile" th:text="#{profileSection}"> </a>
-							<a class="friendbutton" href="/friend" th:text="#{friend}"></a>
+						<td class="menubuttons">
+							<button class="profilebutton"><a class="profilehref" href="/profile" th:text="#{profileSection}"></a></button>
+							<button class="friendbutton"><a class="friendhref" href="/friend" th:text="#{friend}"></a></button>
+						</td>
 					</tr>
 					<tr>
 						<td class="playerstopsection">
 							<div class="playerstopdiv">
 								<label class="toptitle">ТОП РЫЦАРЕЙ</label>
 								<ol class="playerstop">
-									<div th:each="el:${rating}" id="show" class="firstintop">
-										<h6 th:text="  ${el.login} + '-'+ ${el.rating}" />
-										
-									</div>
+									<li class="othersintop" th:each="el:${rating}" id="show">
+										<span class="topcontent" th:text="${el.login}"/>
+										<span class="playersrating" th:text="${el.rating}"/>
+									</li>
 								</ol>
-								<ol start="4" class="youintoplist">
-									<li class="youintop"><span class="yourtopcontent">***</span><span
-										class="yourrating" th:text="${user.login}"></span></li>
-								</ol>
+								<div class="youintop">
+										<span class="yourtopcontent" th:text="${user.login}"/>
+										<span class="yourrating" th:text="${user.rating}"/>
+								</div>
 							</div>
 						</td>
 					</tr>
@@ -39,11 +41,12 @@
 			<td class="centerside">
 				<table class="nestedtable">
 					<tr>
-						<td class="logotype"><img src="css/images/main/logotype.png"
-							height="532"></td>
+						<td class="logotype">
+							<img src="css/images/main/logotype.png" width="530">
+						</td>
 					</tr>
 					<tr>
-						<td><a href="/game" class="fightbutton" th:text="#{playButton}"></button></td>
+						<td><button class="fightbutton"><a class="fighthref" href="/game" th:text="#{playButton}"></a></button></td>
 					</tr>
 				</table>
 			</td>
@@ -51,36 +54,30 @@
 				<table class="nestedtable">
 					<tr>
 						<td class="settings">
-							<table>
-								<tr>
-									<td><a class="rusbutton" href="/?lang=ru"/>
-										<a class="engbutton" href="/?lang=en"/></td>
-									<td><div class="volumebutton">
-											<img src="css/images/main/volume.png" height="132"
-												class="volumepng">
-											<div class="volumerangediv">
-												<input type="range" class="volumerange">
-											</div>
-										</div></td>
-								</tr>
-							</table>
+							<button class="rusbutton"><a href="/?lang=ru"></a></button>
+							<button class="engbutton"><a href="/?lang=en"></a></button>
+							<div class="volumebutton">
+								<img src="images/volume.png" class="volumepng">
+								<div class="volumerangediv">
+									<input type="range" class="volumerange"/>
+								</div>
+							</div>
 						</td>
 					</tr>
 					<tr>
 						<td class="chatsection">
-							<div class="chatwindow"  >
-								<p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p><p>*</p>
-							<ul></ul>	
-							 <form method="POST" action="/chat/add">
-							<a href="/" class="sendbutton"> Go in chat! </a>
-							
-						</form>
-					  </td>
+							<div class="chatwindow"  >	
+								<form method="POST" action="/chat/add">
+									<a href="/" class="sendbutton">Go in chat!</a>
+								</form>
+							</div>
+						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
+	</div>
 	<script src="/js/chat.js"></script>
 </body>
 
