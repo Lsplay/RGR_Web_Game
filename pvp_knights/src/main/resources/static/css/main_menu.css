@@ -1,10 +1,18 @@
 html,body{
 height:100%;
 margin:0px;
-padding:0px
+padding:0px;
+background-color: black;
+}
+.pagebase{
+	position: relative;
+	height: 98%;
+	width: 99%;
+	background-color: black;
 }
 
 .base {
+	position: relative;
 	width: 100%;
 	height: 100%;
 	border:2px solid black;
@@ -35,13 +43,19 @@ padding:0px
 	border: 7px solid black;
 	border-radius: 30px;
 	font: bold 300% Segoe Print, cursive;
-	
 }
+.profilehref, .friendhref {
+	text-decoration: none;
+}
+
 .profilebutton { color: #0ed145; }
 .friendbutton { color: #00a4fe; }
 
 .profilebutton:hover, .friendbutton:hover { background: #6e6e6e; }
 .profilebutton:active, .friendbutton:active { background: #444444; }
+
+.profilehref:visited { color: #0ed145; }
+.friendhref:visited { color: #00a4fe; }
 
 .playerstopsection { background-color: #585858; }
 
@@ -58,38 +72,16 @@ padding:0px
 	height: 76%;
 	list-style-position: inside;
 }
-
-.firstintop {
-	font: bold 250% Segoe Print, cursive;
-	color: #fff200;
-	position: relative;
-}
-
-.secondintop {
-	font: bold 220% Segoe Print, cursive;
-	color: #c3c3c3;
-	position: relative;
-}
-
-.thirdintop {
-	font: bold 220% Segoe Print, cursive;
-	color: #b97a56;
-	position: relative;
-}
-
 .othersintop {
 	font: bold 200% Segoe Print, cursive;
 	color: white;
 	position: relative;
 }
 
-.youintoplist {
+.youintop {
 	width: 90%;
 	height: 10%;
-	list-style-position: inside;
-}
-
-.youintop {
+	margin-left: 5%;
 	font: bold 200% Segoe Print, cursive;
 	color: #0ed145;
 	position: relative;
@@ -114,7 +106,12 @@ padding:0px
 	border: 5px solid black;
 }
 
-.logotype { height: 70%; }
+.logotype {
+	display: block;
+	width: 530px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 .fightbutton {
 	width: 86%;
@@ -127,6 +124,9 @@ padding:0px
 	color: #fec917;
 }
 
+.fighthref { text-decoration: none; }
+.fighthref:visited { color: #fec917; }
+
 .fightbutton:hover { background: #b30024; }
 .fightbutton:active { background: #6b0015; }
 
@@ -134,58 +134,88 @@ padding:0px
 
 .settings {
 	height: 22%;
+	width: 100%;
 	background-color: #8e8e8e;
 	border-bottom:7px solid black;
 }
 
 .rusbutton, .engbutton {
-	width: 160px;
-	height: 110px;
-	border: 5px solid black;
-	border-radius: 20px;
 	position: absolute;
-	top: 1.5%;
+	width: 87px;
+	height: 62px;
+	top: 5px;
+	border: 6px solid black;
+	border-radius: 20px;
 }
-
 .rusbutton {
-	background-image: url(images/main/rusbutton.png);
-    right: 18%;
+	background-color: white;
+	background-image: url(images/settings/rusbutton.png),
+	url(images/settings/rusbuttonhover.png),
+	url(images/settings/rusbuttonactive.png);
+    right: 235px;
 }
 .engbutton {
-	background-image: url(images/main/engbutton.png);
-	right: 9%;
+	background-color: red;
+	background-image: url(images/settings/engbutton.png),
+	url(images/settings/engbuttonhover.png),
+	url(images/settings/engbuttonactive.png);
+	right: 143px;
 }
-
-.rusbutton:hover { background-image: url(images/main/rusbuttonhover.png); }
-.engbutton:hover { background-image: url(images/main/engbuttonhover.png); }
-
-.rusbutton:active { background-image: url(images/main/rusbuttonactive.png); }
-.engbutton:active { background-image: url(images/main/engbuttonactive.png); }
-
+.rusbutton:hover { background-image: url(images/settings/rusbuttonhover.png); }
+.engbutton:hover { background-image: url(images/settings/engbuttonhover.png); }
+.rusbutton:active { background-image: url(images/settings/rusbuttonactive.png); }
+.engbutton:active { background-image: url(images/settings/engbuttonactive.png); }
+	
 .volumebutton {
 	position: absolute;
-    right: 1%;
-	top: 1.5%;
+    right: 6px;
+	top: 5px;
 }
-
 .volumepng {
-	border: 5px solid black;
+	width: 120px;
+	border: 6px solid black;
 	border-radius: 20px 20px 0 0;
 }
-
 .volumerangediv {
+	width: 120px;
 	background-color: #0ed145;
-	border: 5px solid black;
+	border: 6px solid black;
 	border-radius: 0 0 20px 20px;
 }
+.volumerange { width: 115px; }
 
 .chatsection { background-color: #585858; }
 
 .chatwindow {
 	height: 90%;
-	width: 100%;
+	width: 98%;
+	margin: 1%;
 	overflow: scroll;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
 }
+
+.chatinput {
+	width: 83%;
+	margin: 1%;
+	background-color: #585858;
+	border: 5px solid black;
+	border-radius: 8px;
+	outline:none;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+
+.sendbutton {
+	width: 10%;
+	background-color: black;
+	border: 5px solid black;
+	border-radius: 8px;
+	font: bold 100% Segoe Print, cursive;
+	color: white;
+}
+.sendbutton:hover { background-color: #444444 }
+.sendbutton:active { background-color: #333333 }
 
 ::-webkit-scrollbar {
     width: 7px;
@@ -200,25 +230,3 @@ padding:0px
 	border-bottom: 8px ridge #585858;
 	border-radius: 9px;
 }
-
-.chatinput {
-	width: 85%;
-	margin-top: 2%;
-	background-color: #585858;
-	border: 5px solid black;
-	border-radius: 8px;
-	outline:none;
-	font: bold 100% Segoe Print, cursive;
-}
-
-.sendbutton {
-	width: 10%;
-	background-color: black;
-	border: 5px solid black;
-	border-radius: 8px;
-	font: bold 100% Segoe Print, cursive;
-	color: white;
-}
-
-.sendbutton:hover { background-color: #444444 }
-.sendbutton:active { background-color: #333333 }
