@@ -33,6 +33,7 @@ public class user_information implements UserDetails {
 	private int numberOfWin, numberOfAllGame;
 	public boolean active;
 	public int combo;
+	public boolean haveEnemy;
 
 	@Transient
 	private String passwordConfirm;
@@ -46,6 +47,20 @@ public class user_information implements UserDetails {
 	public Long getIdUser() {
 		return idUser;
 	}
+
+	
+
+	public boolean isHaveEnemy() {
+		return haveEnemy;
+	}
+
+
+
+	public void setHaveEnemy(boolean haveEnemy) {
+		this.haveEnemy = haveEnemy;
+	}
+
+
 
 	public int getCombo() {
 		return combo;
